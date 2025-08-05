@@ -1,7 +1,7 @@
-version 0.2
+version: 0.2
 phases:
   build:
-    command:
+    commands:
        - echo Compiling Java file
        - aws s3 sync . s3://ainubuck/ -- exclude ".git"
 artifacts:
