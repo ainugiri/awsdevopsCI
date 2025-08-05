@@ -1,16 +1,9 @@
 version 0.2
-phasesL
-  install:
-     runtime-versions:
-        hava: corretto11
-      commands:
-        - echo installing dependencies
+phases:
   build:
     command:
        - echo Compiling Java file
-       - mkdir -p output
-       - javc Hello.java -d output
+       - aws s3 sync . s3://ainubuck/ -- exclude ".git"
 artifacts:
    files:
-       - output/**/*
-   base-directory: output
+       - '**/*'
