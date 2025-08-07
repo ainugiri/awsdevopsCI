@@ -1,9 +1,12 @@
 version: 0.2
 phases:
+  install:
+    runtime-versions:
+      python: 3.11
   build:
     commands:
-       - echo Compiling Java file
-       - aws s3 sync . s3://ainubuck/
-artifacts:
-   files:
-       - '**/*'
+      - echo "Installing dependencies..."
+      - zip function.zip app.py
+  artifacts:
+    files:
+      - function.zip
